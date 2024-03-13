@@ -2,8 +2,10 @@
 name: Deploy Python Application
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - master  # 更改为你的默认分支
+    # tags:
+    #   - 'v*'
 # 作业
 jobs:
   build:
