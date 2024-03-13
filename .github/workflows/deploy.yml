@@ -43,7 +43,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
       
-    - run: tar -zcvf release.tgz ./
+    - run: tar -zcvf release.tgz .
           
     # 发布 Release
     - name: Create Release
