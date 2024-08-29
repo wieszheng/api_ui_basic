@@ -1,0 +1,23 @@
+name: Create Release-Please
+
+on:
+  workflow_dispatch:
+  workflow_call:
+    outputs:
+      release_created:
+        description: "If true, a release PR has been merged"
+        value: ${{ jobs.release-please.outputs.release_created }}
+      tag_name:
+        description: "The release tag. Ex v1.4.0"
+        value: ${{ jobs.release-please.outputs.tag_name }}
+  
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+
